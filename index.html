@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talents360 | Mumbra’s First 1-Minute Speaking Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0B3B80;--yellow:#FFC107;--orange:#FF5722;--pink:#E91E63;--green:#25D366;--dgreen:#1faa52;--card:#F8F9FA;--ink:#14213D;--muted:#5b6578;--navy:#071f4a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+h1,h2,h3,.ff{font-family:'Poppins',sans-serif;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.grad-text{background:linear-gradient(90deg,#FF9800,#FF5722 50%,#E91E63);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-head{text-align:center;margin-bottom:30px}
+.eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:6px}
+.sec-head h2{font-size:clamp(1.6rem,4vw,2.3rem);color:var(--blue);font-weight:800}
+.sec-head p{color:var(--muted);margin-top:6px}
+section{padding:56px 0}
+
+/* image slots: image shows if file exists, else fallback emoji */
+.slot{position:relative;display:grid;place-items:center;overflow:hidden}
+.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slot img.contain{object-fit:contain}
+
+/* Nav */
+header{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 1px 0 #e7eaf0}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none}
+.brand .logo{width:46px;height:46px;font-size:1.7rem}
+.brand b{display:block;font-family:'Poppins';font-weight:800;font-size:1.55rem;color:var(--blue);line-height:1}
+.brand b i{font-style:normal;color:var(--orange)}
+.brand small{font-size:.62rem;color:var(--muted);letter-spacing:.08em}
+.links{display:flex;gap:26px;list-style:none}
+.links a{text-decoration:none;font-weight:500;font-size:.9rem;padding:8px 0;border-bottom:3px solid transparent}
+.links a.on,.links a:hover{border-color:var(--blue);color:var(--blue)}
+/* hamburger */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;width:38px;height:38px}
+.nav-toggle span{display:block;height:2.5px;border-radius:2px;background:var(--blue);transition:transform .25s,opacity .25s}
+.nav-toggle.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+/* mobile drawer */
+.mobile-menu{display:none;position:fixed;inset:66px 0 0;background:#fff;z-index:29;padding:20px 20px 30px;flex-direction:column;gap:6px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.mobile-menu.open{display:flex}
+@media(max-width:600px){
+  .mobile-menu{top:58px}
+}
+.mobile-menu a{text-decoration:none;font-weight:600;font-size:1.05rem;color:var(--ink);padding:13px 16px;border-radius:10px;border-left:3px solid transparent}
+.mobile-menu a:hover,.mobile-menu a.on{background:#EEF5FF;border-color:var(--blue);color:var(--blue)}
+.mobile-menu .wa-link{margin-top:10px;background:var(--dgreen);color:#fff;border-radius:12px;text-align:center;padding:14px;border:none}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;font-family:'Poppins';font-weight:600;font-size:.92rem;text-decoration:none;border:2px solid transparent;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-green{background:var(--dgreen);color:#fff}
+.btn-out{border-color:#fff;color:#fff;background:rgba(255,255,255,.08)}
+.btn-sm{padding:10px 18px;font-size:.84rem}
+
+/* Hero */
+.hero{color:#fff;position:relative;overflow:hidden;padding:56px 0 64px}
+
+/* ── Background slideshow ── */
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:heroSlide 12s infinite}
+.hero-bg-slide:nth-child(1){background-image:url('imgs/WhatsApp Image 2026-10-03 at 6.05.44 PM.jpeg');animation-delay:0s}
+.hero-bg-slide:nth-child(2){background-image:url('imgs/WhatsApp Image 2026-10-03 at 6.05.44 PM (1).jpeg');animation-delay:4s}
+.hero-bg-slide:nth-child(3){background-image:url('imgs/WhatsApp Image 2026-10-03 at 6.05.44 PM (2).jpeg');animation-delay:8s}
+@keyframes heroSlide{
+  0%{opacity:0;transform:scale(1.06)}
+  8%{opacity:1}
+  30%{opacity:1;transform:scale(1.12)}
+  38%{opacity:0;transform:scale(1.14)}
+  100%{opacity:0}
+}
+/* dark overlay so text stays readable */
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,59,128,.55) 0%,rgba(23,71,168,.45) 38%,rgba(106,63,176,.4) 62%,rgba(233,30,99,.38) 82%,rgba(255,143,31,.35) 100%);z-index:1}
+
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;position:relative;z-index:2}
+.pres{font-size:.82rem;letter-spacing:.28em;font-weight:600;margin-bottom:12px}
+.hero h1{font-weight:800;font-size:clamp(2.1rem,5.2vw,3.5rem)}
+.hero h1 em{display:block;font-style:normal;color:var(--yellow);font-size:1.3em;text-shadow:0 3px 0 rgba(0,0,0,.12)}
+.brush{display:inline-block;margin:16px 0 14px;padding:10px 30px 10px 22px;font-family:'Poppins';font-weight:700;font-size:1.25rem;color:#1a1a1a;background:linear-gradient(90deg,#FFC107,#FF7A1A 60%,#E91E63);clip-path:polygon(0 12%,6% 0,94% 8%,100% 0,97% 55%,100% 100%,5% 92%,0 100%,3% 50%)}
+.hero .sub{color:#e5ecfa;margin-bottom:16px}
+.loc{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:10px 20px;font-size:.84rem;font-weight:500;margin-bottom:28px}
+.loc .pin{font-size:1.1rem}
+.loc span b{display:inline;font-weight:700;color:#FFD740}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+.btn-green{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;box-shadow:0 6px 20px rgba(34,197,94,.4)}
+.btn-green:hover{box-shadow:0 8px 26px rgba(34,197,94,.55)}
+.btn-out{border:2px solid rgba(255,255,255,.7);color:#fff;background:rgba(255,255,255,.1);backdrop-filter:blur(6px)}
+.btn-out:hover{background:rgba(255,255,255,.2)}
+.hero-art{position:relative;min-height:440px}
+.girl{position:absolute;right:6%;bottom:60px;top:0;width:68%;font-size:7rem;border-radius:24px}
+.tag{position:absolute;right:0;font-family:'Poppins';font-weight:800;font-size:.9rem;line-height:1.05;padding:12px 18px;color:#fff;transform:rotate(-8deg);box-shadow:0 6px 14px rgba(0,0,0,.2)}
+.t1{top:14px;background:#E91E63;transform:rotate(-12deg)}
+.t2{top:92px;right:-8px;background:#FF5722;transform:rotate(-8deg)}
+.t3{top:170px;background:#fff;color:#E91E63;transform:rotate(-10deg)}
+.mentor{position:absolute;right:0;bottom:0;display:flex;gap:10px;align-items:center;background:#fff;color:var(--ink);border-radius:14px;padding:8px 14px 8px 8px;box-shadow:0 14px 30px rgba(0,0,0,.25);max-width:100%}
+.mentor .slot{width:62px;height:62px;border-radius:10px;background:#e8eefb;font-size:1.9rem;flex:none}
+.mentor small{font-size:.72rem;color:var(--muted)}
+.mentor h3{font-size:1.15rem;color:var(--blue)}
+.mentor p{font-size:.72rem;color:var(--muted);line-height:1.25}
+
+/* Categories */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cat{border-radius:20px;overflow:hidden;border:1px solid transparent;box-shadow:0 4px 20px rgba(0,0,0,.08);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.cat:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,.14)}
+.cat-img{width:100%;height:200px;object-fit:cover;display:block}
+.cat-body{padding:18px 20px 22px;flex:1}
+.cat:nth-child(1){background:#FFF6DC;border-color:#f7e2a0}
+.cat:nth-child(2){background:#E6F0FF;border-color:#bcd4f7}
+.cat:nth-child(3){background:#FFE9EF;border-color:#f6bfd0}
+.pill{display:inline-block;padding:7px 26px;border-radius:999px;color:#fff;font-family:'Poppins';font-weight:700;margin-bottom:8px}
+.cat:nth-child(1) .pill{background:#FFB300;color:#3d2c00}
+.cat:nth-child(2) .pill{background:#1f6fe0}
+.cat:nth-child(3) .pill{background:#E91E63}
+.cat h3{font-size:1.25rem;margin-bottom:4px}
+.cat p{font-size:.88rem;color:#3b4660}
+
+/* Prizes */
+#prizes{background:#EEF5FF}
+.pz{display:grid;grid-template-columns:1.1fr 1.3fr .8fr;gap:18px}
+.pz-main{background:radial-gradient(circle at 50% 0,#1a56b8,#071f4a 70%);color:#fff;border-radius:18px;padding:26px;text-align:center;border:2px solid #1e4fa0}
+.pz-main .cup{font-size:4.2rem;line-height:1}
+.pz-main .lbl{display:inline-block;background:linear-gradient(90deg,#FFC107,#FF9800);color:#3d2400;font-family:'Poppins';font-weight:700;padding:7px 22px;border-radius:999px;margin:8px 0}
+.pz-main .amt{font-family:'Poppins';font-weight:800;font-size:2.6rem;color:var(--yellow)}
+.pz-main p{font-size:.9rem;color:#dce8ff}
+.pz-cat{background:#fff;border-radius:18px;padding:22px;text-align:center;border:1px solid #dbe6f7}
+.pz-cat h3{color:var(--blue);font-size:1rem}
+.pz-cat small{color:var(--muted)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);margin-top:16px}
+.three div+div{border-left:1px solid #e3e9f3}
+.three .ic{font-size:2.6rem}
+.three b{font-size:.85rem;color:var(--blue);display:block}
+.three span{font-size:.78rem;color:var(--muted)}
+.pz-part{background:#E5F8EC;border:1px solid #bfe9cf;border-radius:18px;padding:22px;text-align:center}
+.pz-part .ic{font-size:3rem}
+.pz-part h3{color:#157a3d;font-size:1.1rem;margin:6px 0}
+.pz-part p{font-size:.85rem;color:#3b5a48}
+
+/* How to Register */
+#register{background:#EEF5FF}
+.reg-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:step}
+.reg-step{background:#fff;border-radius:18px;padding:26px 22px;text-align:center;border:1px solid #dbe6f7;box-shadow:0 4px 16px rgba(11,59,128,.07);position:relative}
+.reg-step::before{counter-increment:step;content:counter(step);position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-family:'Poppins';font-weight:800;font-size:.85rem;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;box-shadow:0 4px 10px rgba(11,59,128,.3)}
+.reg-step .ic{font-size:2.6rem;margin-bottom:12px}
+.reg-step h3{font-size:1rem;color:var(--blue);margin-bottom:6px}
+.reg-step p{font-size:.85rem;color:#3b4660;line-height:1.55}
+.reg-dates{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:28px}
+.reg-date{background:#fff;border-radius:16px;padding:18px 30px;text-align:center;border:1.5px solid #dbe6f7;box-shadow:0 4px 16px rgba(11,59,128,.07);min-width:160px}
+.reg-date .ic{font-size:2rem;line-height:1.3}
+.reg-date b{display:block;font-family:'Poppins';font-weight:700;font-size:1.1rem;color:var(--blue);margin:4px 0 2px}
+.reg-date span{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.reg-date.deadline{border-color:#ffb3b3;background:#fff5f5}
+.reg-date.deadline b{color:#c0392b}
+.reg-date.result{border-color:#b3e0c8;background:#f0faf5}
+.reg-date.result b{color:#157a3d}
+.reg-wa{margin-top:28px;background:linear-gradient(135deg,#e8f7ef,#d4f0e2);border:1.5px solid #a8dfc0;border-radius:16px;padding:22px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.reg-wa .wa-ic{font-size:3rem;flex:none}
+.reg-wa div h3{color:#157a3d;font-size:1rem;margin-bottom:4px}
+.reg-wa div p{font-size:.85rem;color:#2e6b4a;margin-bottom:10px}
+.reg-wa .wa-btns{display:flex;gap:10px;flex-wrap:wrap}
+.reg-wa .wa-btn{display:inline-flex;align-items:center;gap:7px;background:var(--dgreen);color:#fff;border-radius:10px;padding:10px 18px;font-weight:600;font-size:.85rem;text-decoration:none;transition:transform .15s}
+.reg-wa .wa-btn:hover{transform:translateY(-2px)}
+.reg-wa .wa-btn.outline{background:#fff;color:var(--dgreen);border:1.5px solid var(--dgreen)}
+@media(max-width:900px){.reg-steps{grid-template-columns:1fr}}
+@media(max-width:600px){.reg-dates{gap:12px}.reg-date{min-width:130px;padding:14px 18px}.reg-wa{flex-direction:column;gap:12px}}
+.form-box{background:#fff;border:1.5px solid #cfe0f7;border-radius:16px;padding:10px;box-shadow:0 8px 24px rgba(11,59,128,.06)}
+.form-box iframe{width:100%;height:760px;border:0;border-radius:10px}
+.fallback{text-align:center;color:var(--muted);font-size:.9rem;padding:10px}
+.fallback a{color:var(--blue);font-weight:600}
+
+
+.gf{background:#fff;border:1.5px solid #cfe0f7;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(11,59,128,.06)}
+.gf-top{padding:18px 24px;border-bottom:1px solid #e3e9f3}
+.gf-top h3{font-family:'Inter',sans-serif;font-weight:500;font-size:1.35rem;margin-bottom:4px}
+.gf-top p{font-size:.85rem}.gf-top .req{color:#d93025;font-size:.8rem;margin-top:12px}
+.gf-body{padding:20px 24px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px 22px}
+.f label,.f .lb{display:block;font-size:.8rem;font-weight:600;margin-bottom:6px}
+.f label b,.f .lb b{color:#d93025}
+.f input[type=text],.f input[type=tel],.f select{width:100%;padding:11px 12px;border:1px solid #d5dbe6;border-radius:6px;background:#f8f9fb;font:inherit;font-size:.85rem}
+.f input::placeholder{color:#8a93a5}
+.addfile{display:inline-flex;align-items:center;gap:8px;border:1px solid #9bbcf0;color:#1a56c8;background:#f3f8ff;padding:11px 18px;border-radius:6px;font-size:.85rem;font-weight:500;cursor:pointer}
+.addfile input{display:none}
+.fname{font-size:.78rem;color:var(--muted);margin-top:6px;word-break:break-all}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;margin-top:6px}
+.chk input{margin-top:3px}
+.gf-act{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center}
+.sub-btn{background:#1a73e8;color:#fff;border:0;border-radius:6px;padding:11px 34px;font:600 .9rem 'Inter';cursor:pointer}
+.sub-btn:disabled{opacity:.6;cursor:wait}
+.clr{background:none;border:0;color:#1a73e8;font:500 .85rem 'Inter';cursor:pointer}
+.msg{grid-column:1/-1;font-size:.88rem;padding:10px 14px;border-radius:8px;display:none}
+.msg.ok{display:block;background:#e5f8ec;color:#157a3d}.msg.err{display:block;background:#ffe9e9;color:#b3261e}
+.gf small.nt{grid-column:1/-1;font-size:.72rem;color:var(--muted)}
+@media(max-width:900px){.gf-body{grid-template-columns:1fr}.gf-act{flex-direction:column;gap:12px;align-items:flex-start}}
+
+/* Rules */
+#rules{background:#FFF9EC}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rule{background:#fff;border-radius:14px;padding:20px;display:flex;gap:14px;box-shadow:0 4px 14px rgba(0,0,0,.06);border:1px solid #f1e6c8}
+.rule .ic{font-size:2rem;flex:none;line-height:1.3}
+.rule h3{font-size:.95rem;margin-bottom:4px;color:var(--blue)}
+.rule p{font-size:.85rem;color:#3b4660;line-height:1.5}
+.rule p b{color:var(--ink)}
+.rules-note{margin-top:22px;background:#fff7e0;border:1.5px solid #ffd97a;border-radius:14px;padding:16px 20px;text-align:center}
+.rules-note p{font-size:.88rem;color:#7a4e00;margin:0}
+.rules-note p b{color:#5a3600}
+.rules-time{display:flex;justify-content:center;gap:20px;margin:22px 0 8px;flex-wrap:wrap}
+.rules-time .tb{background:#fff;border:1.5px solid #f1e6c8;border-radius:14px;padding:14px 28px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);min-width:150px}
+.rules-time .tb .ic{font-size:2rem;line-height:1.2}
+.rules-time .tb b{display:block;font-size:1rem;color:var(--blue);margin-top:4px}
+.rules-time .tb span{font-size:.8rem;color:var(--muted)}
+
+/* Footer */
+footer{background:linear-gradient(180deg,#0B3B80,#06214d);color:#d3e0f7;padding:34px 0 20px;position:relative}
+.foot{display:grid;grid-template-columns:1.1fr 1.1fr 1fr 1fr;gap:0}
+.fcol{padding:0 22px;border-left:1px solid rgba(255,255,255,.15)}
+.fcol:first-child{border:0;padding-left:0}
+.fcol small{display:block;font-size:.8rem;margin-bottom:8px}
+.fcol strong{color:#fff;font-family:'Poppins'}
+.row{display:flex;align-items:center;gap:12px}
+.row .slot{width:52px;height:52px;border-radius:50%;background:#fff;font-size:1.6rem;flex:none}
+.fcol a{color:#fff;font-weight:600;font-size:1.1rem;text-decoration:none}
+.copy{border-top:1px solid rgba(255,255,255,.15);margin-top:22px;padding-top:16px;text-align:center;font-size:.85rem}
+.top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:#1f5fcf;color:#fff;display:grid;place-items:center;text-decoration:none;font-size:1.2rem;box-shadow:0 6px 14px rgba(0,0,0,.3);z-index:40}
+
+@media(max-width:900px){
+  .links{display:none}
+  .hero .wrap,.cats,.pz,.foot{grid-template-columns:1fr}
+  .rules{grid-template-columns:repeat(2,1fr)}
+  .hero-art{min-height:420px}
+  .fcol{border:0;padding:10px 0}
+  .cat{min-height:0}
+}
+
+/* ── Mobile (≤ 600px) ───────────────────────────────────── */
+@media(max-width:600px){
+
+  /* nav */
+  nav{height:58px}
+  .brand b{font-size:1.25rem}
+  .btn-sm{display:none} /* hide WhatsApp btn – it's in the drawer */
+  .nav-toggle{display:flex}
+
+  /* hero */
+  .hero{padding:44px 0 52px}
+  .hero .wrap{grid-template-columns:1fr;text-align:center}
+  .pres{font-size:.7rem;letter-spacing:.18em}
+  .hero h1{font-size:clamp(1.7rem,7.5vw,2.4rem)}
+  .brush{font-size:1rem;padding:8px 18px 8px 14px;margin:12px 0 10px}
+  .hero .sub{font-size:.88rem}
+  .loc{font-size:.78rem;padding:8px 14px;justify-content:center}
+  .cta-row{justify-content:center;gap:10px}
+  .cta-row .btn{padding:11px 18px;font-size:.84rem}
+
+  /* sections */
+  section{padding:40px 0}
+  .sec-head{margin-bottom:22px}
+  .sec-head h2{font-size:clamp(1.35rem,5.5vw,1.8rem)}
+
+  /* categories */
+  .cats{grid-template-columns:1fr;gap:16px}
+  .cat-img{height:180px}
+
+  /* prizes */
+  .pz{grid-template-columns:1fr;gap:14px}
+  .pz-main .amt{font-size:2rem}
+  .three{gap:0}
+  .three .ic{font-size:2rem}
+
+  /* form */
+  .gf-body{grid-template-columns:1fr;padding:16px}
+  .gf-top{padding:14px 16px}
+  .gf-act{flex-direction:column;gap:10px;align-items:stretch}
+  .sub-btn{width:100%;text-align:center;padding:13px}
+
+  /* rules */
+  .rules{grid-template-columns:1fr;gap:12px}
+  .rule{padding:16px}
+  .rules-time{gap:12px}
+  .rules-time .tb{min-width:120px;padding:12px 18px}
+
+  /* footer */
+  .foot{grid-template-columns:1fr;gap:0}
+  .fcol{border:0;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .fcol:last-child{border:0}
+  .copy{font-size:.78rem}
+
+  /* back-to-top */
+  .top{right:14px;bottom:14px;width:40px;height:40px;font-size:1rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<!--
+ IMAGE FILES: put these in an "images" folder next to this file (names below).
+ Missing images are hidden automatically and an emoji shows instead.
+ logo.png, girl.png, mentor.jpg, group-a.png, group-b.png, group-c.png,
+ school.png, myratech.png, talents360-footer.png
+-->
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#home">
+        <span class="slot logo">🌟<img src="imgs/talent 360 logo.jpeg" alt="Talents360 Logo" class="contain"></span>
+        <span><b>Talents<i>360</i></b><small>Discover • Develop • Shine</small></span>
+      </a>
+      <ul class="links">
+        <li><a class="on" href="#home">Home</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#prizes">Prizes</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#register">How to Register</a></li>
+        <li><a href="#submit">Submit Entry</a></li>
+      </ul>
+      <a class="btn btn-green btn-sm" href="https://chat.whatsapp.com/HSruXnxpd3w95FfvjZNkUm?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">💬 WhatsApp Support ›</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- Mobile nav drawer -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a class="on" href="#home" onclick="closeMobileMenu()">🏠 Home</a>
+  <a href="#categories" onclick="closeMobileMenu()">👥 Categories</a>
+  <a href="#prizes" onclick="closeMobileMenu()">🏆 Prizes</a>
+  <a href="#rules" onclick="closeMobileMenu()">📄 Rules</a>
+  <a href="#register" onclick="closeMobileMenu()">📝 How to Register</a>
+  <a href="#submit" onclick="closeMobileMenu()">📹 Submit Entry</a>
+  <a class="wa-link" href="https://chat.whatsapp.com/HSruXnxpd3w95FfvjZNkUm?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">💬 WhatsApp Support</a>
+</nav>
+
+<main>
+<section class="hero" id="home" style="padding-block:56px 64px">
+  <!-- Slideshow background -->
+  <div class="hero-bg">
+    <div class="hero-bg-slide"></div>
+    <div class="hero-bg-slide"></div>
+    <div class="hero-bg-slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div>
+      <p class="pres">TALENTS360 PRESENTS</p>
+      <h1>Mumbra’s First <em>1-Minute</em> Speaking Challenge</h1>
+      <span class="brush">Speak • Express • Inspire</span>
+      <p class="sub">Empowering young speakers with confidence.</p>
+      <div class="loc"><span class="pin">📍</span><span>Exclusively for students of <b>Mumbra Kausa</b></span></div>
+      <div class="cta-row">
+        <a class="btn btn-green" href="#submit">📹 Submit Video Now ↓</a>
+        <a class="btn btn-out" href="#rules">📄 Read Rules</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="categories">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Categories</p>
+      <h2>Three Age Groups, <span class="grad-text">Infinite Possibilities</span></h2>
+      <p>Choose your category and showcase your speaking talent.</p>
+    </div>
+    <div class="cats">
+      <article class="cat">
+        <img class="cat-img" src="imgs/6-8 agegrp.jpeg" alt="Young child 6-8 years storytelling">
+        <div class="cat-body">
+          <span class="pill">Group A</span>
+          <h3>6 – 8 Years</h3>
+          <p>Early Speakers &amp; Expressive Storytelling</p>
+        </div>
+      </article>
+      <article class="cat">
+        <img class="cat-img" src="imgs/9-11 age grp.jpeg" alt="Children 9-11 years in classroom">
+        <div class="cat-body">
+          <span class="pill">Group B</span>
+          <h3>9 – 11 Years</h3>
+          <p>Confident Articulation &amp; Vocabulary</p>
+        </div>
+      </article>
+      <article class="cat">
+        <img class="cat-img" src="imgs/12-14 agr grp.jpeg" alt="Teenager 12-14 years public speaking" style="object-position:top">
+        <div class="cat-body">
+          <span class="pill">Group C</span>
+          <h3>12 – 14 Years</h3>
+          <p>Public Speaking &amp; Impactful Delivery</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="prizes">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Prizes &amp; Recognition</p>
+      <h2>Win Prizes. Get Recognized. <span class="grad-text">Be Inspired.</span></h2>
+    </div>
+    <div class="pz">
+      <div class="pz-main">
+        <div class="cup">🏆</div>
+        <span class="lbl">Overall Outstanding Speaker</span>
+        <div class="amt">₹ 5,000</div>
+        <p>Cash Prize + Trophy + Certificate</p>
+      </div>
+      <div class="pz-cat">
+        <h3>Prizes in Each Category</h3><small>(Group A, B and C)</small>
+        <div class="three">
+          <div><div class="ic">🥇</div><b>1st Prize</b><span>Trophy + Certificate</span></div>
+          <div><div class="ic">🥈</div><b>2nd Prize</b><span>Trophy + Certificate</span></div>
+          <div><div class="ic">🥉</div><b>3rd Prize</b><span>Trophy + Certificate</span></div>
+        </div>
+      </div>
+      <div class="pz-part">
+        <div class="ic">📜</div>
+        <h3>Participant Recognition</h3>
+        <p>All participants will receive a Participation Certificate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How to Participate</p>
+      <h2>How to <span class="grad-text">Register Your Entry</span></h2>
+      <p>Follow these simple steps to submit your child's entry for the challenge.</p>
+    </div>
+
+    <!-- Steps -->
+    <div class="reg-steps">
+      <div class="reg-step">
+        <div class="ic">🪪</div>
+        <h3>Step 1 – Send Aadhaar Card Photo</h3>
+        <p>Send a clear photo of your child's <b>Aadhaar Card</b> on WhatsApp. This is required to verify the student's <b>Name, Address and Age.</b></p>
+      </div>
+      <div class="reg-step">
+        <div class="ic">🎥</div>
+        <h3>Step 2 – Record &amp; Send Video</h3>
+        <p>Record your child's <b>1-minute speaking video</b> following all the rules, then send it on WhatsApp.</p>
+      </div>
+      <div class="reg-step">
+        <div class="ic">✅</div>
+        <h3>Step 3 – Entry Confirmed</h3>
+        <p>Once we receive both documents, your child's entry will be <b>officially registered</b> for the competition.</p>
+      </div>
+    </div>
+
+    <!-- Important Dates -->
+    <div class="reg-dates">
+      <div class="reg-date deadline">
+        <div class="ic">📅</div>
+        <b>05 Oct 2026</b>
+        <span>Last Date for Video</span>
+      </div>
+      <div class="reg-date result">
+        <div class="ic">🏆</div>
+        <b>10 Oct 2026</b>
+        <span>Results Announced</span>
+      </div>
+    </div>
+
+    <!-- WhatsApp CTA -->
+    <div class="reg-wa">
+      <div class="wa-ic">💬</div>
+      <div>
+        <h3>Send Your Entry on WhatsApp</h3>
+        <p>Send your child's Aadhaar photo and video directly to us on WhatsApp, or join our group for updates and announcements.</p>
+        <div class="wa-btns">
+          <a class="wa-btn" href="https://wa.me/919323983810" target="_blank" rel="noopener">📲 WhatsApp: +91 9323983810</a>
+          <a class="wa-btn outline" href="https://chat.whatsapp.com/HSruXnxpd3w95FfvjZNkUm?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">👥 Join WhatsApp Group</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="submit">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Submit Your Entry</p>
+      <h2>Upload Your <span class="grad-text">1-Minute Video</span></h2>
+      <p>Fill in the form below to submit your entry. Make sure your video follows all the guidelines.</p>
+    </div>
+    <form class="gf" id="entryForm" novalidate>
+      <div class="gf-top">
+        <h3>Talents360 – 1-Minute Speaking Challenge</h3>
+        <p>Fill in your details and upload your 1-minute video.</p>
+        <p class="req">* Required</p>
+      </div>
+      <div class="gf-body">
+        <div class="f"><label for="fn">Student's Full Name <b>*</b></label><input type="text" id="fn" placeholder="Enter student's full name" required></div>
+        <div class="f"><label for="fc">Category <b>*</b></label>
+          <select id="fc" required><option value="">Choose an option</option><option>Group A (6 – 8 Years)</option><option>Group B (9 – 11 Years)</option><option>Group C (12 – 14 Years)</option></select></div>
+        <div class="f"><label for="fs">School / Institution Name <b>*</b></label><input type="text" id="fs" placeholder="Enter school / institution name" required></div>
+        <div class="f"><label for="fw">Parent / Guardian WhatsApp Number <b>*</b></label><input type="tel" id="fw" placeholder="Enter WhatsApp number (e.g. 9323983810)" inputmode="numeric" maxlength="10" required></div>
+        <div class="f"><span class="lb">Video File Upload (Max 1 Minute) <b>*</b></span>
+          <label class="addfile">⬆ Add file<input type="file" id="fv" accept="video/*"></label><div class="fname" id="fname"></div></div>
+        <div class="f"><span class="lb">I confirm the participant resides/studies in Mumbra Kausa <b>*</b></span>
+          <label class="chk"><input type="checkbox" id="fk" required> Yes, I confirm.</label></div>
+        <div class="msg" id="msg" role="status"></div>
+        <div class="gf-act"><button type="submit" class="sub-btn" id="sbtn">Submit</button><button type="reset" class="clr" id="clr">Clear form</button></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Video Guidelines &amp; Rules</p>
+      <h2>Official Rules for a <span class="grad-text">Fair &amp; Exciting Challenge</span></h2>
+      <p>Please read all the rules carefully before recording your video.</p>
+    </div>
+
+    <!-- Time limit -->
+    <div class="rules-time">
+      <div class="tb"><div class="ic">⏱️</div><b>Min 30 seconds</b><span>Minimum duration</span></div>
+      <div class="tb"><div class="ic">🎯</div><b>Max 60 seconds</b><span>Maximum duration</span></div>
+    </div>
+
+    <!-- Video Rules -->
+    <div class="rules">
+      <div class="rule"><span class="ic">🎬</span><div><h3>1. One-Shot Video</h3><p>Record in a single take. <b>No cuts, retakes or joining of clips</b> allowed.</p></div></div>
+      <div class="rule"><span class="ic">✂️</span><div><h3>2. No Editing</h3><p><b>Video editing is not allowed</b> in any form.</p></div></div>
+      <div class="rule"><span class="ic">🚫</span><div><h3>3. No Filters</h3><p><b>No beauty filters, face filters</b> or video effects allowed.</p></div></div>
+      <div class="rule"><span class="ic">🔇</span><div><h3>4. No Background Music</h3><p><b>No background music</b>, sound effects or added audio allowed.</p></div></div>
+      <div class="rule"><span class="ic">🧍</span><div><h3>5. Full Body Visible</h3><p>Participant's <b>head-to-toe full body</b> must be clearly visible.</p></div></div>
+      <div class="rule"><span class="ic">👨‍👩‍👧</span><div><h3>6. Parent / Guardian Recording</h3><p>Parent or guardian may hold the phone. <b>Mobile stand or tripod is not compulsory.</b></p></div></div>
+      <div class="rule"><span class="ic">📱</span><div><h3>7. Vertical Video</h3><p>Record in <b>vertical (9:16) portrait format</b> only.</p></div></div>
+      <div class="rule"><span class="ic">💡</span><div><h3>8. Clear Audio &amp; Video</h3><p>Face must be clearly visible and voice clearly audible. <b>Record in a quiet place.</b></p></div></div>
+      <div class="rule"><span class="ic">🎤</span><div><h3>9. One Topic Only</h3><p>Select <b>one topic</b> and speak only on that topic.</p></div></div>
+      <div class="rule"><span class="ic">🗣️</span><div><h3>10. Natural Speech</h3><p>Speech must be in the student's <b>own voice and natural presentation.</b></p></div></div>
+      <div class="rule"><span class="ic">🙌</span><div><h3>11. Expressions &amp; Gestures</h3><p>Use gestures, posture and facial expressions <b>naturally.</b></p></div></div>
+      <div class="rule"><span class="ic">👀</span><div><h3>12. Look at the Camera</h3><p><b>Look into the camera</b> and speak confidently.</p></div></div>
+    </div>
+
+    <!-- Warning note -->
+    <div class="rules-note">
+      <p>⚠️ <b>Important:</b> Videos that do not follow the rules may be disqualified from the competition.</p>
+      <p style="margin-top:8px">🌟 <b>No Editing. No Filters. Just Your Voice, Confidence &amp; Talent!</b></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="fcol"><small>Sponsored by</small>
+        <div class="row"><span class="slot">🏫<img src="imgs/rosary logo.jfif" alt="Rosary Convent Logo" class="contain"></span><strong>Rosary Convent<br><span style="font-weight:500;font-size:.85rem">High School &amp; Junior College</span></strong></div></div>
+      <div class="fcol"><small>Contact &amp; Inquiries</small>
+        <div class="row"><span style="font-size:2rem">💬</span><div><a href="https://chat.whatsapp.com/HSruXnxpd3w95FfvjZNkUm?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener">Join WhatsApp Group</a><br><small style="margin:0">For any queries, feel free to reach out on WhatsApp.</small></div></div></div>
+      <div class="fcol"><small>Developed by</small>
+        <a href="https://www.instagram.com/myratech.co?stkn=MXY2NG5iMzJ0MmNodg==" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+        <div class="row"><span class="slot" style="border-radius:10px">M<img src="imgs/myratech logo.jpeg" alt="MyraTech Logo" class="contain"></span><strong>MyraTech<br><span style="font-weight:500;font-size:.78rem">Ideas • Technology • Impact</span></strong></div>
+        </a></div>
+      <div class="fcol"><div class="row"><span class="slot" style="width:48px;height:48px;background:none">🌟<img src="imgs/talent 360 logo.jpeg" alt="Talents360 Logo" class="contain"></span><strong style="font-size:1.4rem">Talents360<br><span style="font-weight:500;font-size:.78rem">Speak • Express • Inspire</span></strong></div></div>
+    </div>
+    <p class="copy">© 2026 Talents360. All rights reserved.</p>
+  </div>
+</footer>
+<a class="top" href="#home" aria-label="Back to top">↑</a>
+
+<script>
+// ── Mobile nav toggle ──────────────────────────────────────
+var navToggle=document.getElementById('navToggle');
+var mobileMenu=document.getElementById('mobileMenu');
+navToggle.addEventListener('click',function(){
+  var open=mobileMenu.classList.toggle('open');
+  navToggle.classList.toggle('open',open);
+  navToggle.setAttribute('aria-expanded',open);
+  document.body.style.overflow=open?'hidden':'';
+});
+function closeMobileMenu(){
+  mobileMenu.classList.remove('open');
+  navToggle.classList.remove('open');
+  navToggle.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';
+}
+// close menu on resize to desktop
+window.addEventListener('resize',function(){if(window.innerWidth>600)closeMobileMenu()});
+
+// hide any image that fails to load so the emoji fallback shows
+document.querySelectorAll('.slot img').forEach(function(i){
+  i.addEventListener('error',function(){i.style.display='none'});
+});
+
+// ===== PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE =====
+var SCRIPT_URL="https://script.google.com/macros/s/AKfycbwKLjYwNIfELDo611VDZ_-9YvICZ7Xgnj2aNsnD-w2wH8ErQ4wZN5WIkFA9KCURZU8/exec";
+var MAX_MB=40;
+var f=document.getElementById('entryForm'),msg=document.getElementById('msg');
+function show(t,c){msg.className='msg '+c;msg.textContent=t}
+document.getElementById('fv').addEventListener('change',function(e){
+  document.getElementById('fname').textContent=e.target.files[0]?e.target.files[0].name:'';
+});
+f.addEventListener('reset',function(){document.getElementById('fname').textContent='';msg.className='msg'});
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=fn.value.trim(),c=fc.value,s=fs.value.trim(),w=fw.value.trim(),v=fv.files[0];
+  if(!n||!c||!s||!v||!fk.checked) return show('Please fill every required field, add your video and tick the confirmation.','err');
+  if(!/^[6-9]\d{9}$/.test(w)) return show('Enter a valid 10-digit WhatsApp number.','err');
+  if(v.size>MAX_MB*1048576) return show('Video is larger than '+MAX_MB+' MB. Please compress it and try again.','err');
+  if(SCRIPT_URL.indexOf('PASTE')===0) return show('Form is not connected yet. Please contact us on WhatsApp.','err');
+  var b=document.getElementById('sbtn');b.disabled=true;b.textContent='Uploading…';show('Uploading your video, please wait…','ok');
+  var r=new FileReader();
+  r.onload=function(){
+    fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},
+      body:JSON.stringify({name:n,category:c,school:s,whatsapp:w,filename:v.name,mime:v.type,data:r.result.split(',')[1]})})
+    .then(function(){show('Thank you! Your entry has been submitted.','ok');f.reset();show('Thank you! Your entry has been submitted.','ok')})
+    .catch(function(){show('Upload failed. Check your internet and try again.','err')})
+    .finally(function(){b.disabled=false;b.textContent='Submit'});
+  };
+  r.readAsDataURL(v);
+});
+</script>
+</body>
+</html>
